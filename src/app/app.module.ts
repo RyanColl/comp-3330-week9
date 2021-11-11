@@ -5,12 +5,16 @@ import { FormComponent } from './form/form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { GroceryCartComponent } from './grocery-cart/grocery-cart.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    GroceryCartComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

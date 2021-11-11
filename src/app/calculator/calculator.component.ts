@@ -8,19 +8,19 @@ import { Calculation, calcLogic } from '../calc_logic/calcLogic';
               </div>
               <div class="flex flex-col items-center justify-center bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div>
-                <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" pattern="[0-9]*" [(ngModel)]="addinput1"> + <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" pattern="[0-9]*" [(ngModel)]="addinput2"> 
+                <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" pattern="[0-9]*" [(ngModel)]="addinput1"> + <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" pattern="[0-9]*" [(ngModel)]="addinput2"> 
                 <input class="mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" type='button' value="=" (click)=addClick()> 
                 {{addoutput}}</div> <br /> <br />
                 <div>
-                <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="subtractinput1"> - <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="subtractinput2"> 
+                <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="subtractinput1"> - <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="subtractinput2"> 
                 <input class="mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" type='button' value="=" (click)=subtractClick()> 
                 {{subtractoutput}}</div> <br />  <br />
                 <div>
-                <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="divideinput1"> / <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="divideinput2"> 
+                <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="divideinput1"> / <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="divideinput2"> 
                 <input  class="mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" type='button' value="=" (click)=divideClick()> 
                 {{divideoutput}}</div> <br /> <br />
                 <div>
-                <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="multiplyinput1"> x <input class="mx-5 shadow border border-grey-500 rounded w-10 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="multiplyinput2"> 
+                <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="multiplyinput1"> x <input class="mx-5 shadow border border-grey-500 rounded w-20 py-2 px-3 text-gray-700 mb-3 focus:shadow-outline" [(ngModel)]="multiplyinput2"> 
                 <input class="mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" type='button' value="=" (click)=multiplyClick()> 
                 {{multiplyoutput}}</div>
               </div>`,
@@ -32,10 +32,10 @@ export class CalculatorComponent implements OnInit {
   subtractinput1 = ''; subtractinput2 = ''; subtractoutput = '';
   divideinput1 = ''; divideinput2 = ''; divideoutput = '';
   multiplyinput1 = ''; multiplyinput2 = ''; multiplyoutput = '';
-  Add = () => this.addoutput = `${this.addinput1} + ${this.addinput2} = ${this.add(this.addinput1, this.addinput2).toString()}`
-  Subtract = () => this.subtractoutput = `${this.subtractinput1} - ${this.subtractinput2} = ${this.subtract(this.subtractinput1, this.subtractinput2).toString()}`
-  Divide = () => this.divideoutput = `${this.divideinput1} / ${this.divideinput2} = ${this.divide(this.divideinput1, this.divideinput2).toString()}`
-  Multiply = () => this.multiplyoutput = `${this.multiplyinput1} x ${this.multiplyinput2} = ${this.multiply(this.multiplyinput1, this.multiplyinput2).toString()}`
+  Add = () => this.addoutput = `${this.addinput1} + ${this.addinput2} = ${this.add(this.addinput1, this.addinput2).toFixed(2)}`
+  Subtract = () => this.subtractoutput = `${this.subtractinput1} - ${this.subtractinput2} = ${this.subtract(this.subtractinput1, this.subtractinput2).toFixed(2)}`
+  Divide = () => this.divideoutput = `${this.divideinput1} / ${this.divideinput2} = ${this.divide(this.divideinput1, this.divideinput2).toFixed(2)}`
+  Multiply = () => this.multiplyoutput = `${this.multiplyinput1} x ${this.multiplyinput2} = ${this.multiply(this.multiplyinput1, this.multiplyinput2).toFixed(2)}`
   add: Calculation; subtract: Calculation;
   divide: Calculation; multiply: Calculation;
   constructor(calcLogic: calcLogic) {
