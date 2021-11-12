@@ -49,7 +49,7 @@ import { Component } from '@angular/core';
               <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
                 <li class=""><a (click)="selectedFruitApple()" class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Apples</a></li>
                 <li class=""><a (click)="selectedFruitPeach()" class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Peaches</a></li>
-                <li class=""><a (click)="selectedFruitpear()" class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">pears</a></li>
+                <li class=""><a (click)="selectedFruitPear()" class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Pears</a></li>
                 <li class=""><a (click)="selectedFruitPlum()" class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Plums</a></li>
               </ul>
             </div>
@@ -134,7 +134,7 @@ export class GroceryCartComponent  {
   selectedFruitApple() {
     this.selectedfruit = 'apple';
   }
-  selectedFruitpear() {
+  selectedFruitPear() {
     this.selectedfruit = 'pear';
   }
   selectedFruitPeach() {
@@ -210,7 +210,6 @@ export class GroceryCartComponent  {
   randomIntFromInterval(min: number, max: number) { // min and max included 
     return parseFloat((Math.random() * (max - min + 1) + min).toFixed(2))
   }
-  
 
 }
 
