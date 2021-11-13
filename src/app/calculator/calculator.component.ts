@@ -52,10 +52,10 @@ export class CalculatorComponent implements OnInit {
   divideinput1 = ''; divideinput2 = ''; divideoutput = '';
   multiplyinput1 = ''; multiplyinput2 = ''; multiplyoutput = '';
   inputErrorPattern = 'please use only numbers'; inputErrorMinlength = 'please enter at least 1 number';
-  Add = () => this.addoutput = `${this.addinput1} + ${this.addinput2} = ${this.add(this.addinput1, this.addinput2)}`
-  Subtract = () => this.subtractoutput = `${this.subtractinput1} - ${this.subtractinput2} = ${this.subtract(this.subtractinput1, this.subtractinput2)}`
-  Divide = () => this.divideoutput = `${this.divideinput1} / ${this.divideinput2} = ${this.divide(this.divideinput1, this.divideinput2)}`
-  Multiply = () => this.multiplyoutput = `${this.multiplyinput1} x ${this.multiplyinput2} = ${this.multiply(this.multiplyinput1, this.multiplyinput2)}`
+  Add = () => this.addoutput = `${parseInt(this.addinput1)!==parseFloat(this.addinput1) ? parseFloat(this.addinput1).toFixed(2) : parseInt(this.addinput1)} + ${parseInt(this.addinput2)!==parseFloat(this.addinput2) ? parseFloat(this.addinput2).toFixed(2) : parseInt(this.addinput2)} = ${this.add(this.addinput1, this.addinput2)}`
+  Subtract = () => this.subtractoutput = `${parseInt(this.subtractinput1)!==parseFloat(this.subtractinput1) ? parseFloat(this.subtractinput1).toFixed(2) : parseInt(this.subtractinput1)} - ${parseInt(this.subtractinput2)!==parseFloat(this.subtractinput2) ? parseFloat(this.subtractinput2).toFixed(2) : parseInt(this.subtractinput2)} = ${this.subtract(this.subtractinput1, this.subtractinput2)}`
+  Divide = () => this.divideoutput = `${parseInt(this.divideinput1)!==parseFloat(this.divideinput1) ? parseFloat(this.divideinput1).toFixed(2) : parseInt(this.divideinput1)} / ${parseInt(this.divideinput2)!==parseFloat(this.divideinput2) ? parseFloat(this.divideinput2).toFixed(2) : parseInt(this.divideinput2)} = ${this.divide(this.divideinput1, this.divideinput2)}`
+  Multiply = () => this.multiplyoutput = `${parseInt(this.multiplyinput1)!==parseFloat(this.multiplyinput1) ? parseFloat(this.multiplyinput1).toFixed(2) : parseInt(this.multiplyinput1)} x ${parseInt(this.multiplyinput2)!==parseFloat(this.multiplyinput2) ? parseFloat(this.multiplyinput2).toFixed(2) : parseInt(this.multiplyinput2)} = ${this.multiply(this.multiplyinput1, this.multiplyinput2)}`
   add: Calculation; subtract: Calculation;
   divide: Calculation; multiply: Calculation;
   constructor(calcLogic: calcLogic) {
@@ -68,21 +68,25 @@ export class CalculatorComponent implements OnInit {
     
   }
   addClick = () => {
+    this.reset('add')
     let valid = this.checkValid(this.addinput1, this.addinput2)
     if(valid) this.Add();
     else this.errorMsg()
   }
   subtractClick = () => {
+    this.reset('subtract')
     let valid = this.checkValid(this.subtractinput1, this.subtractinput2)
     if(valid) this.Subtract();
     else this.errorMsg()
   }
   divideClick = () => {
+    this.reset('divide')
     let valid = this.checkValid(this.divideinput1, this.divideinput2)
     if(valid) this.Divide();
     else this.errorMsg()
   }
   multiplyClick = () => {
+    this.reset('multiply')
     let valid = this.checkValid(this.multiplyinput1, this.multiplyinput2)
     if(valid) this.Multiply();
     else this.errorMsg()
@@ -100,5 +104,21 @@ export class CalculatorComponent implements OnInit {
       this.errorMessage = ''
     }, 5000)
   }
-
+  reset(type: string) {
+    const add = () => { this.resetDivide(); this.resetMultiply(); this.resetSubtract(); }
+    const subtract = () => { this.resetDivide(); this.resetMultiply(); this.resetAdd(); }
+    const divide = () => { this.resetAdd(); this.resetMultiply(); this.resetSubtract(); }
+    const multiply = () => { this.resetDivide(); this.resetAdd(); this.resetSubtract(); }
+    switch(type) {
+      case 'add': add(); break;
+      case 'subtract': subtract(); break;
+      case 'divide': divide(); break;
+      case 'multiply': multiply(); break;
+      default: break;
+    }
+  }
+  resetDivide() {this.divideinput1 = ''; this.divideinput2 = ''; this.divideoutput = '';}
+  resetAdd() {this.addinput1 = ''; this.addinput2 = ''; this.addoutput = '';}
+  resetSubtract() {this.subtractinput1 = ''; this.subtractinput2 = ''; this.subtractoutput = '';}
+  resetMultiply() {this.multiplyinput1 = ''; this.multiplyinput2 = ''; this.multiplyoutput = '';}
 }

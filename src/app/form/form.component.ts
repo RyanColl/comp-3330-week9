@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent  {
-
+  value = ""
+  search = '';
   constructor() { }
 
-  submit(login: any) {
-
+  submit(event: any) {  
+    event.preventDefault()
+    alert(`this element is just for show, however here is your search query: ${this.search}`)
   }
 
 }

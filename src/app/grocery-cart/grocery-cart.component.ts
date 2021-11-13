@@ -30,7 +30,8 @@ import { Component } from '@angular/core';
         <p class="text-red-500" *ngIf="streetAddress?.errors?.['minlength']">
         This entry must have at least two characters.</p>
         <p class="text-gray-500" *ngIf="streetAddress?.errors?.['required']">This field is required.</p>
-        <button (click)="addAddress()" type="submit" class="flex justify-center items-center my-5 mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Submit Address</button>
+        <button (click)="addAddress()" type="submit" 
+        class="flex justify-center items-center my-5 mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">Submit Address</button>
         <p class="text-red-700 text-md">{{errorMessage}}</p>
       
       </form>
