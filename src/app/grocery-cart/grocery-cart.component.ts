@@ -154,7 +154,6 @@ export class GroceryCartComponent  {
         }, 4500)
         return
       };
-    
     let existingItem = this.basket.filter(item => {
       return item.fruit === this.selectedfruit
     })
@@ -165,15 +164,13 @@ export class GroceryCartComponent  {
                    :0
     let quantity = parseInt(this.quantity)
     let amount = parseFloat((unitPrice*quantity).toFixed(2))
-    if(!existingItem[0]) {
-      
+    if(!existingItem[0]) {  
       this.basket.push({
         fruit: this.selectedfruit,
         quantity,
         unitPrice,
         amount
       })
-      
     }
     else {
       let holder = this.basket.filter(item => {
@@ -184,7 +181,6 @@ export class GroceryCartComponent  {
       this.basket = [...holder, ...existingItem]
     }
     this.calculateTotal()
-    
   }
   deleteFromCart(item: Basket) {
     this.basket = this.basket.filter(basketItem => {
@@ -206,15 +202,12 @@ export class GroceryCartComponent  {
     setTimeout(() => {
       this.errorMessage = ''
     }, 4500)
-
   }
   //math
   randomIntFromInterval(min: number, max: number) { // min and max included 
     return parseFloat((Math.random() * (max - min + 1) + min).toFixed(2))
   }
-
 }
-
 interface Basket {
   fruit: string;
   quantity: number;
