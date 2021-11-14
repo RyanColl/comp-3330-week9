@@ -54,13 +54,14 @@ import { Component } from '@angular/core';
                 <li class=""><a (click)="selectedFruitPlum()" class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Plums</a></li>
               </ul>
             </div>
-            <div id="fruit-box" class="flex justify-center inline-flex items-center cursor-not-allowed mx-5 shadow border border-grey-500 rounded text-gray-700 mb-3">
-              <span>{{selectedfruit}}</span>
-            </div>
+            <input id="fruit-box" class="cursor-not-allowed mx-5 shadow border border-grey-500 rounded text-gray-700 mb-3"
+            type="text" pattern="[a-zA-Z ]*" required
+            [(ngModel)]="selectedfruit" name="selectedFruit" #selectedFruit="ngModel"
+            >
             <input class="mx-5 shadow border border-grey-500 rounded w-12 py-1 px-3 text-gray-700 mb-3 focus:shadow-outline"
             type="text" pattern="[0-9]*" minlength="1" required 
             [(ngModel)]="quantity" name="fruitQuantity" #fruitQuantity="ngModel" >
-            <button (click)="addFruitToBasket()" type="submit" class="flex justify-center items-center my-5 mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center">Add Fruit</button>
+            <button [disabled]="!myForm2.form.valid" (click)="addFruitToBasket()" type="submit" class="flex justify-center items-center my-5 mx-5 bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center">Add Fruit</button>
           </div>
         </form>
         <span class="leading-none text-xl text-grey-darkest py-2 ">{{orderMessage}}</span>
