@@ -4,7 +4,7 @@ Ryan Collicutt - A00888552
 
 # Week 9
 
-In week 9 we started building with Angular. Because we are experienced with web-apps, we jumped right into a lot of content, including Forms! Today I am going to cover the details of the assignment and what it is I have done here. One tip I saw from a video gave me the command ```ng g c componentName```. This gives me a brand new folder in the app directory that ocmes with its own css, html, model and component files. 
+In week 9 we started building with Angular. Because we are experienced with web-apps, we jumped right into a lot of content, including Forms! Today I am going to cover the details of the assignment and what it is I have done here. One tip I saw from a video gave me the command ```ng g c componentName```. This gives me a brand new folder in the app directory that comes with its own css, html, model and component files. 
 
 # ES6 Usage Examples
 
